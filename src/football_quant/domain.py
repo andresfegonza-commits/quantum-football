@@ -23,6 +23,14 @@ class TeamSnapshot:
     recent_goal_diff: float
     rest_days: int
     injuries_index: float = 0.0
+    goals_for_avg: float = 0.0
+    goals_against_avg: float = 0.0
+    shots_for_avg: float = 0.0
+    shots_against_avg: float = 0.0
+    shots_on_target_for_avg: float = 0.0
+    shots_on_target_against_avg: float = 0.0
+    corners_for_avg: float = 0.0
+    corners_against_avg: float = 0.0
 
 
 @dataclass(frozen=True)

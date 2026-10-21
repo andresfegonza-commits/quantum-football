@@ -38,6 +38,30 @@ def build_pre_match_features(
     form_diff_home = match.home.recent_goal_diff - match.away.recent_goal_diff
     rest_diff_home = match.home.rest_days - match.away.rest_days
     injury_diff_home = match.away.injuries_index - match.home.injuries_index
+    goal_profile_home = (
+        match.home.goals_for_avg
+        - match.home.goals_against_avg
+        - match.away.goals_for_avg
+        + match.away.goals_against_avg
+    )
+    shot_profile_home = (
+        match.home.shots_for_avg
+        - match.home.shots_against_avg
+        - match.away.shots_for_avg
+        + match.away.shots_against_avg
+    )
+    target_profile_home = (
+        match.home.shots_on_target_for_avg
+        - match.home.shots_on_target_against_avg
+        - match.away.shots_on_target_for_avg
+        + match.away.shots_on_target_against_avg
+    )
+    corner_profile_home = (
+        match.home.corners_for_avg
+        - match.home.corners_against_avg
+        - match.away.corners_for_avg
+        + match.away.corners_against_avg
+    )
 
     side_multiplier = 1.0 if quote.side == "home" else -1.0
     line_movement = 0.0
@@ -51,6 +75,10 @@ def build_pre_match_features(
         "form_diff": side_multiplier * form_diff_home,
         "rest_diff": side_multiplier * rest_diff_home,
         "injury_advantage": side_multiplier * injury_diff_home,
+        "goal_profile_diff": side_multiplier * goal_profile_home,
+        "shot_profile_diff": side_multiplier * shot_profile_home,
+        "target_profile_diff": side_multiplier * target_profile_home,
+        "corner_profile_diff": side_multiplier * corner_profile_home,
         "home_field": 0.0 if quote.side == "away" or match.neutral_venue else 1.0,
         "line": quote.line,
         "line_movement": side_multiplier * line_movement,
@@ -67,6 +95,10 @@ def estimate_cover_probability(features: FeatureVector) -> float:
         + 0.18 * features.value("form_diff")
         + 0.025 * features.value("rest_diff")
         + 0.12 * features.value("injury_advantage")
+        + 0.08 * features.value("goal_profile_diff")
+        + 0.01 * features.value("shot_profile_diff")
+        + 0.035 * features.value("target_profile_diff")
+        + 0.008 * features.value("corner_profile_diff")
         - 0.16 * abs(features.value("line"))
         + 0.05 * features.value("line_movement")
     )

@@ -38,6 +38,7 @@ def run_backtest(
     model: BaselineAsianHandicapModel | None = None,
     min_expected_value: float = 0.02,
     flat_stake: float = 1.0,
+    include_closing_quotes: bool = False,
 ) -> BacktestReport:
     if flat_stake <= 0:
         raise ValueError("flat_stake must be positive")
@@ -55,7 +56,11 @@ def run_backtest(
     peak = 0.0
     max_drawdown = 0.0
 
-    for quote in sorted(dataset.pre_match_quotes(), key=lambda item: item.captured_at):
+    candidate_quotes = dataset.pre_match_quotes()
+    if include_closing_quotes:
+        candidate_quotes = tuple(sorted(candidate_quotes + dataset.closing_quotes(), key=lambda item: item.captured_at))
+
+    for quote in sorted(candidate_quotes, key=lambda item: item.captured_at):
         match = matches[quote.match_id]
         result = results[quote.match_id]
         opening_quote = opening_by_key.get((quote.match_id, quote.side))
@@ -76,7 +81,7 @@ def run_backtest(
         peak = max(peak, equity)
         max_drawdown = min(max_drawdown, equity - peak)
 
-        closing_quote = closing_by_key.get((quote.match_id, quote.side, quote.line))
+        closing_quote = None if quote.is_closing else closing_by_key.get((quote.match_id, quote.side, quote.line))
         clv = None
         if closing_quote is not None:
             clv = quote.odds - closing_quote.odds
