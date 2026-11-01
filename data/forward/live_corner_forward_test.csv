@@ -1,1 +1,2 @@
 date,competition,match,favorite_team,favorite_side,prematch_favorite_odds,minute,favorite_goals,opponent_goals,corners_at_entry,odds_corner_more,red_card_favorite,red_card_opponent,final_total_corners,notes
+2026-10-31,Germany Bundesliga I,Bayern Munich vs Borussia Dortmund,Bayern Munich,home,1.333,90,2,2,7,2.35,False,False,7,fixture_id=7093046

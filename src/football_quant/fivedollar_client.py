@@ -62,8 +62,11 @@ class FiveDollarFootballClient:
     def fixture_events(self, fixture_id: str | int) -> dict[str, Any]:
         return self.get(f"/fixtures/{fixture_id}/events")
 
+    def fixture_odds(self, fixture_id: str | int, market: str | None = None) -> dict[str, Any]:
+        return self.get(f"/fixtures/{fixture_id}/odds", {"market": market})
+
     def fixture_corner_odds(self, fixture_id: str | int) -> dict[str, Any]:
-        return self.get(f"/fixtures/{fixture_id}/odds", {"market": "corner"})
+        return self.fixture_odds(fixture_id, "corner")
 
     def _url(self, path: str, params: dict[str, Any]) -> str:
         normalized_path = path if path.startswith("/") else f"/{path}"

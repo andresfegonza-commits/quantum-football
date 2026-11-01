@@ -1,0 +1,11 @@
+bet_id,card_date,league,strategy,book,stake,combined_odds,rule_min_combined,rule_compliant,legs,status,profit,notes
+2026-10-22-el-fav_d2-leverkusen-benfica,2026-10-22,Europa League,fav_d2_wide,1xBet,1.00,1.632,1.44,1,Leverkusen win (OFI vs Leverkusen) + Benfica win (Omonia vs Benfica),settled,0.63,"OFI 0-2 Leverkusen, Omonia 1-4 Benfica."
+2026-10-22-conf-fav_d2-brighton-twente,2026-10-22,Conference League,fav_d2_wide,1xBet,1.00,1.394,1.44,0,Brighton win (Jablonec vs Brighton) + Twente win (Lincoln vs Twente),settled,-1.00,"Jablonec 0-0 Brighton, Lincoln 1-4 Twente. Combined 1.394 below 1.44 min."
+2026-10-21-ucl-bttsn-villa-viking,2026-10-21,Champions League,locked_btts_no,1xBet,1.00,2.200,1.90,1,BTTS No (Aston Villa vs Viking),settled,-1.00,Scan quote 2.20 in 1.90-2.40 band. Final 3-1; both teams scored.
+2026-10-21-ucl-fav_d2-madrid-inter,2026-10-21,Champions League,fav_d2_wide,1xBet,1.00,1.611,1.44,1,Real Madrid win (vs Leipzig) + Inter win (vs Shakhtar),settled,0.61,"Madrid 4-1, Inter 1-0."
+2026-10-23-d1-stuttgart-win,2026-10-23,Bundesliga,paper_fav_single,1xBet,1.00,1.420,1.20,0,Stuttgart win (vs Gladbach),settled,-1.00,"Paper single. Favorite 1.20-1.70, no same-league double. Not a locked rule. Final 2-3."
+2026-10-24-i1-lazio-win,2026-10-24,Serie A,paper_fav_single,1xBet,1.00,1.524,1.20,0,Lazio win (vs Parma),settled,0.52,Paper single. Favorite 1.20-1.70. Serie A home favs lose historically. Not a locked rule. Final 2-1.
+2026-10-24-d1-dortmund-win,2026-10-24,Bundesliga,paper_fav_single,1xBet,1.00,1.443,1.20,0,Dortmund win (vs Frankfurt),settled,0.44,Paper single. Favorite 1.20-1.70. Bundesliga favs lose historically. Not a locked rule. Final 1-0.
+2026-10-24-sp1-atletico-win,2026-10-24,La Liga,paper_fav_single,1xBet,1.00,1.341,1.20,0,Atletico Madrid win (vs Deportivo),settled,0.34,"Paper single. Favorite 1.20-1.70. Matches the surviving La Liga home-fav slice, still not locked. Final 1-0."
+2026-11-01-f1-lyon-win,2026-11-01,Ligue 1,paper_fav_single,1xBet,1.00,1.440,1.20,0,Lyon win (vs Angers),open,,Paper single. Favorite 1.20-1.70. Ligue 1 home favs are not locked.
+2026-11-01-sp1-madrid-1h-over25,2026-11-01,La Liga,paper_1h_over_25,1xBet,1.00,1.640,2.00,0,1H Over 2.5 (Racing Santander vs Real Madrid),settled,0.64,Paper 1H Over 2.5 @1.64. Not a locked rule. HT 0-3.
